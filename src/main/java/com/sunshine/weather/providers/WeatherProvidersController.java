@@ -20,8 +20,4 @@ class WeatherProvidersController {
     public List<String> providers() {
         return providersService.getAll();
     }
-
-
-
-
 }
