@@ -17,6 +17,7 @@ public class WeatherbitProvider implements CurrentWeatherProvider {
 
     @Override
     public CurrentWeatherDto getFor(String cityName) {
+        //TODO implement method
         return null;
     }
 }

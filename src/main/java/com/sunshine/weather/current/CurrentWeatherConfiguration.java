@@ -1,5 +1,6 @@
 package com.sunshine.weather.current;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -15,9 +16,10 @@ class CurrentWeatherConfiguration {
     }
 
     @Bean
-    List<CurrentWeatherProvider> weatherProviders(RestTemplate restTemplate) {
+    List<CurrentWeatherProvider> weatherProviders(RestTemplate restTemplate,
+                                                  @Value("${openweather.apikey}")String openWeatherApiKey) {
         return List.of(
-                new OpenWeatherProvider(restTemplate),
+                new OpenWeatherProvider(restTemplate, openWeatherApiKey),
                 new WeatherbitProvider(restTemplate),
                 new AccuWeatherProvider(restTemplate)
         );
